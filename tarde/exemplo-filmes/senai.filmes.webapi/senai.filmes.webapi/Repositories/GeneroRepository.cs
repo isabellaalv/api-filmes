@@ -72,18 +72,59 @@ namespace senai.Filmes.WebApi.Repositories
             return generos;
         }
 
-        public GeneroDomain Cadastrar()
+        public GeneroDomain Cadastrar(GeneroDomain Genero)
         {
-        
+
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string query = "INSERT INTO Generos(Nome) VALUES(Nome) ";
+                string query = $"INSERT INTO Generos (Nome) VALUES('{Genero.Nome}') ; " ;
+
 
                 con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                return Genero;
+            }
+        }
+        
+        public GeneroDomain Atualizar(int IdGenero , GeneroDomain Genero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string query = $"UPDATE Generos SET Nome = '{Genero.Nome}' WHERE IdGenero = '{IdGenero}' ";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                return Genero;
             }
         }
 
-           
+        public GeneroDomain Deletar(int IdGenero, GeneroDomain Genero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string query = $"DELETE FROM Generos WHERE IdGenero = {Genero.IdGenero}; ";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.ExecuteNonQuery();
+                } 
+                return Genero;
+            }
+        }
+
+
+
+
 
     }
 }

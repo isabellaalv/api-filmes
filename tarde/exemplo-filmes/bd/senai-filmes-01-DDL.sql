@@ -12,3 +12,7 @@ CREATE TABLE Filmes(
 	,Titulo		VARCHAR (255) NOT NULL UNIQUE
 	,IdGenero	INT FOREIGN KEY REFERENCES Generos (IdGenero)
 );
+
+INSERT INTO Generos (Nome)
+VALUES ('Terror');
+

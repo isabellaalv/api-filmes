@@ -50,9 +50,21 @@ namespace senai.Filmes.WebApi.Controllers
         }
 
         [HttpPost]
-        public GeneroDomain Post ()
+        public GeneroDomain Post(GeneroDomain Genero)
         {
-            return _generoRepository.Cadastrar(GeneroDomain Genero);
+            return _generoRepository.Cadastrar(Genero);
+        }
+
+        [HttpPut("genero/{IdGenero}")]
+        public GeneroDomain Put(int IdGenero, GeneroDomain Genero)
+        {
+            return _generoRepository.Atualizar(IdGenero, Genero);
+        }
+
+        [HttpDelete("genero/{IdGenero}")]
+        public GeneroDomain Deletar(int IdGenero, GeneroDomain Genero)
+        {
+            return _generoRepository.Deletar(IdGenero, Genero);
         }
     }
 }

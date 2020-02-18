@@ -7,6 +7,6 @@
     "\\senai.filmes.webapi\\Interfaces",
     "\\senai.filmes.webapi\\Repositories"
   ],
-  "SelectedNode": "\\senai.filmes.webapi\\Repositories\\GeneroRepository.cs",
+  "SelectedNode": "\\senai.filmes.webapi\\Controllers\\GenerosController.cs",
   "PreviewInSolutionExplorer": false
 }
